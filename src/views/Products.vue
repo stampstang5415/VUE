@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Suppliers</h1>   
+        <h1>Product List</h1>   
          <b-table striped hover :items="products" :fields="fields" :per-page="pageSize" :current-page="pageIndex" ></b-table>
            <b-pagination size="md" :total-rows="products.length" v-model="pageIndex" :per-page="pageSize"></b-pagination>
     </div>
@@ -60,28 +60,19 @@ export default {
         {
           key: "homepage",
           sortable: true,
-        },
-        {
-          key: "key:  'show_details'",
+          variant: "danger"
         }
       ]
     };
   },
-   computed: {
-    sortOptions () {
-      // Create an options list from our fields
-      return this.fields
-        .filter(f => f.sortable)
-        .map(f => { return { text: f.label, value: f.key } })
-    }
-  },
-  async mounted() {
-    let products = await axios.get(
-      "https://vast-oasis-47337.herokuapp.com/api/supplier"
-    );
-    products = products.data.data;
-    this.items = products;
-   
+  mounted() {
+    var instance = this;
+    axios
+      .get("https://vast-oasis-47337.herokuapp.com/api/supplier")
+      .then(function(response) {
+        console.log(response.data);
+        instance.products = response.data.data;
+      });
   }
-}
+};
 </script>
