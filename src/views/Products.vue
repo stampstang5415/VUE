@@ -18,7 +18,7 @@ export default {
       products: [],
       fields: [
         {
-          key: "supplier id",
+          key: "supplier_id",
           sortable: true
         },
         {
@@ -30,11 +30,35 @@ export default {
           sortable: true
         },
         {
-          key: "contact_name",
+          key: "address",
           sortable: true
         },
         {
-          key: "contact_name",
+          key: "city",
+          sortable: true
+        },
+        {
+          key: "region",
+          sortable: true
+        },
+        {
+          key: "postal_code",
+          sortable: true
+        },
+        {
+          key: "country",
+          sortable: true
+        },
+        {
+          key: "phone",
+          sortable: true
+        },
+        {
+          key: "fax",
+          sortable: true
+        },
+        {
+          key: "homepage",
           sortable: true,
           variant: "danger"
         }
