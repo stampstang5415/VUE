@@ -60,19 +60,28 @@ export default {
         {
           key: "homepage",
           sortable: true,
-          variant: "danger"
+        },
+        {
+          key: "key:  'show_details'",
         }
       ]
     };
   },
-  mounted() {
-    var instance = this;
-    axios
-      .get("https://vast-oasis-47337.herokuapp.com/api/supplier")
-      .then(function(response) {
-        console.log(response.data);
-        instance.products = response.data.data;
-      });
+   computed: {
+    sortOptions () {
+      // Create an options list from our fields
+      return this.fields
+        .filter(f => f.sortable)
+        .map(f => { return { text: f.label, value: f.key } })
+    }
+  },
+  async mounted() {
+    let products = await axios.get(
+      "https://vast-oasis-47337.herokuapp.com/api/supplier"
+    );
+    products = products.data.data;
+    this.items = products;
+   
   }
-};
+}
 </script>
