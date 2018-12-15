@@ -31,6 +31,10 @@ export default {
         },
         {
           key: "contact_name",
+          sortable: true
+        },
+        {
+          key: "contact_name",
           sortable: true,
           variant: "danger"
         }
