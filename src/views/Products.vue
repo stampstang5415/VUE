@@ -18,15 +18,19 @@ export default {
       products: [],
       fields: [
         {
-          key: "id",
+          key: "supplier id",
           sortable: true
         },
         {
-          key: "title",
+          key: "company_name",
           sortable: true
         },
         {
-          key: "price",
+          key: "contact_name",
+          sortable: true
+        },
+        {
+          key: "contact_name",
           sortable: true,
           variant: "danger"
         }
