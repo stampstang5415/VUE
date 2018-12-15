@@ -6,42 +6,41 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
-
+import axios from "axios";
 
 export default {
-name: 'products', 
-  data(){
-      return{
-          message:'Project 2',
-          pageSize: 10,
-          pageIndex: 1,
-          products: [],
-           fields: [ {
-               key:'id',
-               sortable : true
-           },
-           {
-               key:'title',
-               sortable : true
-           },
-           {
-               key:'price',
-               sortable : true,
-               variant: 'danger'
-           },
-           ]
-      }
+  name: "products",
+  data() {
+    return {
+      message: "Project 2",
+      pageSize: 10,
+      pageIndex: 1,
+      products: [],
+      fields: [
+        {
+          key: "id",
+          sortable: true
+        },
+        {
+          key: "title",
+          sortable: true
+        },
+        {
+          key: "price",
+          sortable: true,
+          variant: "danger"
+        }
+      ]
+    };
   },
-  mounted () {
-      var instance = this
+  mounted() {
+    var instance = this;
     axios
-      .get('https://shielded-spire-43023.herokuapp.com/api/products')
-      .then(function(response){
-          console.log(response.data)
-          instance.products = response.data.data
-      })
+      .get("https://vast-oasis-47337.herokuapp.com/api/supplier")
+      .then(function(response) {
+        console.log(response.data);
+        instance.products = response.data.data;
+      });
   }
-}
-
+};
 </script>
