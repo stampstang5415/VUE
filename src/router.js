@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Product from './views/Products.vue'
+import Product from './views/Suppliers.vue'
 import User from './views/User.vue'
 
 
@@ -15,8 +15,8 @@ export default new Router({
       component: Home
     },
     {
-      path: '/product',
-      name: 'product',
+      path: '/Suppliers',
+      name: 'Suppliers',
       component: Product
     },
     {
